@@ -1,0 +1,6 @@
+flowchart LR
+  I(("●")) --> A["Proveedor entrega lote"] --> B["Verificar cantidad y estado"] --> C{"¿Conforme?"}
+  C -- No --> D["Registrar incidencia / lote no conforme (RF-05)"] --> F(("◉"))
+  C -- Sí --> E["Registrar recepción (RF-01)"] --> G["Asignar ID y trazabilidad"] --> H["Actualizar stock por lote"] --> J["Consultar / reservar stock (RF-03, RF-07)"] --> K{"¿Stock suficiente?"}
+  K -- No --> L["Bloquear y generar alerta (RF-09)"] --> F
+  K -- Sí --> M["Registrar salida (RF-04)"] --> F

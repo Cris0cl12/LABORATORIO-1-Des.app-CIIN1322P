@@ -1,0 +1,11 @@
+digraph G {
+  rankdir=LR; bgcolor=white; dpi=200; nodesep=0.5; ranksep=1.2;
+  node [shape=box, style="rounded,filled", fillcolor="#F4F4F4", fontname="Helvetica", fontsize=12];
+  edge [fontname="Helvetica", fontsize=10, color="#555555"];
+  S [label="Sistema de Gestión Integrada\nAgroVerde S.A.C.\n(lotes, almacén, producción y exportación)", fillcolor="#D6E6F5", fontsize=13];
+  PA [label="Proveedor agrícola"]; JP [label="Jefe de Producción"]; AL [label="Almacén / Logística"];
+  EX [label="Exportación"]; CE [label="Cliente exportador"]; RH [label="RRHH"]; GG [label="Gerencia General"];
+  PA -> S [label="materia prima"]; JP -> S [label="lotes"]; AL -> S [label="movimientos / stock"];
+  EX -> S [label="reservas / despachos"]; CE -> S [label="pedidos"]; RH -> S [label="usuarios / accesos"];
+  GG -> S [label="acceso / decisiones"];
+}

@@ -1,0 +1,17 @@
+digraph G {
+  rankdir=LR; bgcolor=white; dpi=200; nodesep=0.4; ranksep=0.5;
+  node [shape=box, style="rounded,filled", fillcolor="#F4F4F4", fontname="Helvetica", fontsize=11];
+  edge [fontname="Helvetica", fontsize=10, color="#555555"];
+  ini [shape=circle, label="", width=0.25, style=filled, fillcolor=black];
+  fin [shape=doublecircle, label="", width=0.25, style=filled, fillcolor=black];
+  A [label="Proveedor\nentrega lote"]; B [label="Verificar cantidad\ny estado"];
+  C [shape=diamond, style=filled, fillcolor="#FFF2CC", label="¿Conforme?"];
+  D [label="Registrar incidencia /\nlote no conforme\n(RF-05)", fillcolor="#F8D7DA"];
+  E [label="Registrar\nrecepción\n(RF-01)"]; G [label="Asignar ID y\ntrazabilidad"]; H [label="Actualizar\nstock por lote"];
+  J [label="Consultar / reservar\nstock\n(RF-03, RF-07)"];
+  K [shape=diamond, style=filled, fillcolor="#FFF2CC", label="¿Stock\nsuficiente?"];
+  L [label="Bloquear y generar\nalerta\n(RF-09)", fillcolor="#F8D7DA"];
+  M [label="Registrar salida\n(RF-04)"];
+  ini -> A -> B -> C; C -> D [label="No"]; D -> fin;
+  C -> E [label="Sí"]; E -> G -> H -> J -> K; K -> L [label="No"]; L -> fin; K -> M [label="Sí"]; M -> fin;
+}
